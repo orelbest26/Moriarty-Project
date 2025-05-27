@@ -1,4 +1,3 @@
-
 __author__ = 'Aziz Kaplan'
 
 
@@ -40,6 +39,25 @@ password="" #chill man. It's needed for trucaller and sync.me. Your password is 
 phoneNumberOwner=""
 phoneNumberOwner1=""
 tupleOutput=False
+phone_number = ""
+# Инициализация переменных для избежания NameError
+country = ""
+operator = ""
+timeZone = ""
+errNumber = ""
+currentTime = ""
+faceResult = ""
+instaResult = ""
+twResult = ""
+goResult = ""
+micResult = ""
+links = ""
+comments = ""
+comments2 = ""
+situationSpam = ""
+explanation = ""
+numberType = ""
+spamGet = ""
 def threadFunction(functionName,*args):
     loop=asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
@@ -83,7 +101,7 @@ def microsoftMail():
     except:
         redirectionMicrosoftFailed=True
         return redirect(url_for("index"))
-@app.route("/success",methods=["POST","GET"])
+@app.route("/success",methods=["POST","GET"]) # type: ignore
 def success():
     if request.method=="GET":
         global redirectionMicrosoft
@@ -125,7 +143,7 @@ def investigation():
         numberType=numberType
         
         )
-@app.route("/",methods=["POST","GET"])
+@app.route("/",methods=["POST","GET"]) # type: ignore
 def index():
     global get_comments,get_links,spam_risk,social_media,find_owner,phone_number,comments2,runall
     if request.method=="GET":
@@ -306,7 +324,7 @@ def socialMedia2():
     global instaResult
     while True:
         try:
-            instaResult=Investigation.socialMedia2.printAll()
+            instaResult=Investigation.socialMedia2.printAll() # type: ignore
         except:
             instaResult="Feature On Progress"
             continue
@@ -335,6 +353,6 @@ def socialMedia5():
             micResult="Feature On Progress"
             continue  
 if __name__ == "__main__":
-    import subprocess
-    app.run(str(subprocess.check_output("hostname -I | awk '{print $1}'",shell=True).decode().strip()),8080,debug=True)
-    
+    import socket
+    app.run(socket.gethostbyname(socket.gethostname()), 8080, debug=True)
+

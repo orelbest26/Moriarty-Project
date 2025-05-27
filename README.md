@@ -10,12 +10,15 @@
 <a href="https://azizkpln.github.io/moriartyproject/" target="_blank">https://azizkpln.github.io/moriartyproject/</a>
 
 ### About
+
 Moriarty Project is a powerful web based phone number investigation tool. It has 6 features and it allows you to choose either all features, or the features you like. You can visit documentation page to learn more about features.
 
 ### Situation
+
 Social Media Stuck Issue Fixed.
 
 ### Current Features
+
 - *Tries To Find The Owner Of The Given Phone Number.*
 
 - *Tries To Find The Spam Risk Situation Of The Given Phone Number.*
@@ -27,6 +30,7 @@ Social Media Stuck Issue Fixed.
 - *Tries To Find Social Media Platforms Connected With The Phone Number.*
 
 ### Anti Features & Future Developments
+
 - *This tool doesn't support mobile based usage(termux,kali nethunter etc.)*
 
 - *I might make another tool for mobile OS based usage. But currently it's not supported.*
@@ -35,9 +39,8 @@ Social Media Stuck Issue Fixed.
 
 - *This tool doesn't provide tracking/hacking or anything that could harm/endanger the owner. It's just an investigation tool.*
 
-
-
 ### Installation
+
 ````
 sudo apt install git -y
 
@@ -49,9 +52,11 @@ bash run.sh
 ````
 
 ### Question And Answers
+
 ![](https://i.ibb.co/26ycxZb/Capture.png)
 
 ### Tutorial Videos
+
 * I'll share here if you send me a video about moriarty
 
 <h1 align="center" width="100%">Donations</h1>
