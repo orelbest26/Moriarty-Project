@@ -157,9 +157,12 @@ def index():
         if command=="help":
             return render_template("help.html")
         elif command[0:15]=="add PhoneNumber":
-          
-            phone_number=str("+"+re.search("\d+",command).group(0))
-            return render_template("phoneNumberSuccess.html",phone_number=phone_number)
+            match = re.search(r"\d+", command)
+            if match:
+                phone_number = "+" + match.group(0)
+                return render_template("phoneNumberSuccess.html", phone_number=phone_number)
+            else:
+                return render_template("failed.html")
         elif command[0:21]=="add feature FindOwner":
             try:
                 if email!="" or password!="":
@@ -279,76 +282,95 @@ def runScripts():
             Investigation.spamControl2.getSpam(phone_number)
             spamGet=Investigation.spamControl2.returnValue()
             spamMain(phone_number)
-            situationSpam,explanation,numberType=Investigation.spamControl.printAll()
+            from Investigation import spamControl
+            situationSpam,explanation,numberType=spamControl.printAll()
         if get_comments=="Added":
             getComments_(phone_number)
             threading.Thread(target=_getComments_).start()
             _getComments2_(phone_number)
-            comments2=Investigation.getComments2.printAll()
+            from Investigation import getComments2
+            comments2=getComments2.printAll()
         if get_links=="Added":
             getLinks_(phone_number)
-            links=Investigation.getLinks.printAll()
+            from Investigation import getLinks
+            links=getLinks.printAll()
         if find_owner=="Added":
             threadFunction(main,phone_number,email,password)
             phoneNumberOwner=Investigation.FindOwner.printName()
             threadFunction(main1,phone_number,email,password)
-            phoneNumberOwner1=Investigation.FindOwner2.printName()
+            phoneNumberOwner1=Investigation.FindOwner2.printName() # type: ignore
         if social_media=="Added":
-            threadFunction(faceMain,phone_number);faceResult=Investigation.socialMedia1.printAll()
-            threadFunction(instaMain,phone_number);instaResult=Investigation.socialMedia2.printAll()
-            threadFunction(twMain,phone_number);twResult=Investigation.socialMedia3.printAll()
-            threadFunction(goMain,phone_number);goResult=Investigation.socialMedia4.printAll()
-            threadFunction(micMain,phone_number);micResult=Investigation.socialMedia5.printAll()
+            threadFunction(faceMain,phone_number)
+            from Investigation import socialMedia1
+            faceResult=socialMedia1.printAll()
+            threadFunction(instaMain,phone_number)
+            from Investigation import socialMedia2
+            instaResult=socialMedia2.printAll()
+            threadFunction(twMain,phone_number)
+            from Investigation import socialMedia3
+            twResult=socialMedia3.printAll()
+            threadFunction(goMain,phone_number)
+            from Investigation import socialMedia4
+            goResult=socialMedia4.printAll()
+            threadFunction(micMain,phone_number)
+            from Investigation import socialMedia5
+            micResult=socialMedia5.printAll()
           
 
         
         
 def _getComments_():
     global comments
+    from Investigation import getComments
     while True:
         try:
-            comments=Investigation.getComments.printAll()
+            comments=getComments.printAll()
             break
         except:
             comments="Feature On Progress"
             continue
 def socialMedia1():
     global faceResult
+    from Investigation import socialMedia1
     while True:
         try:
-            faceResult=Investigation.socialMedia1.printAll()
+            faceResult=socialMedia1.printAll()
         except:
             faceResult="Feature On Progress"
             continue
 def socialMedia2():
     global instaResult
+    from Investigation import socialMedia2
     while True:
         try:
-            instaResult=Investigation.socialMedia2.printAll() # type: ignore
+            instaResult=socialMedia2.printAll() # type: ignore
         except:
             instaResult="Feature On Progress"
             continue
 def socialMedia3():
     global twResult
+    from Investigation import socialMedia3
     while True:
         try:
-            twResult=Investigation.socialMedia3.printAll()
+            twResult=socialMedia3.printAll()
         except:
             twResult="Feature On Progress"
             continue
 def socialMedia4():
     global goResult
+    from Investigation import socialMedia4
     while True:
         try:
-            goResult=Investigation.socialMedia4.printAll()
+            goResult=socialMedia4.printAll()
         except:
             goResult="Feature On Progress"
             continue  
 def socialMedia5():
     global micResult
+    from Investigation import socialMedia5
     while True:
         try:
-            micResult=Investigation.socialMedia5.printAll()
+            micResult=socialMedia5.printAll()
         except:
             micResult="Feature On Progress"
             continue  

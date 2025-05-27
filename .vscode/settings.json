@@ -1,0 +1,29 @@
+{
+  // Форматирование и поддержка Python
+  "python.languageServer": "Pylance",
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": false,
+  "python.testing.unittestEnabled": true,
+  "python.testing.pytestEnabled": false,
+
+  // Общие настройки редактора
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // ESLint для JS/TS
+  "eslint.enable": true,
+  "eslint.run": "onType",
+
+  // C++
+  "C_Cpp.intelliSenseEngine": "Default",
+
+  // Java
+  "java.configuration.checkProjectSettingsExclusions": false
+
+  // Docker (если потребуется)
+  // "docker.enable": true
+}
